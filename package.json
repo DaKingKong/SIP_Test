@@ -1,0 +1,17 @@
+{
+  "name": "sip",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2",
+    "sip": "^0.0.6",
+    "sip.js": "^0.21.2",
+    "tls-sip-probe": "^1.0.5"
+  }
+}

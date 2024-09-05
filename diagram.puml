@@ -1,0 +1,20 @@
+@startuml
+actor User as u
+entity RingCX_Workflow as cx 
+entity SIP_Server as sip
+entity Bot_Server as bot
+
+group Cognigy Integration
+
+    u -> cx: Call
+    cx -> cx: Start workflow
+    cx -> sip: SIP connection -> Cognigy number
+    sip -> bot: WebSocket connection -> Cognigy bot
+    bot -> u: "What is your name?"
+    u -> bot: "John Doe"
+    bot -> cx: Send meta data
+    cx -> cx: Continue workflow logic 
+
+end
+
+@enduml
