@@ -9,9 +9,6 @@ var fs = require('fs');
 var registry = {};
 
 sip.start({
-  address: '127.0.0.1',
-  tls_port: 5061,
-  publicAddress: 'k7llpejlgsw6lquq.l.tunwg.com',
   logger: { 
     send: function(message, address) { debugger; util.debug("send\n" + util.inspect(message, false, null)); },
     recv: function(message, address) { debugger; util.debug("recv\n" + util.inspect(message, false, null)); },
@@ -23,7 +20,7 @@ sip.start({
   }
 },
 function(rq) {
-  console.log(0) 
+  console.log(rq.method) 
   try {
     if(rq.method === 'REGISTER') {       
       //looking up user info
