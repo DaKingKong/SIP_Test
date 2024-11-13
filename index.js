@@ -8,10 +8,8 @@ var fs = require('fs');
 
 var registry = {};
 
-console.log(process.env.PORT)
-
 sip.start({
-  port: process.env.PORT || 5060,
+  port: 5062,
   logger: {
     send: function (message, address) { debugger; util.debug("send\n" + util.inspect(message, false, null)); },
     recv: function (message, address) { debugger; util.debug("recv\n" + util.inspect(message, false, null)); },
