@@ -18,7 +18,7 @@ sip.start({
 },
   function (rq) {
     console.log('------------------')
-    console.log(JSON.stringify(rq))
+    console.log(JSON.stringify(rq, null, 2))
     console.log('------------------')
     console.log('\n\n\n');
     try {
