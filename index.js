@@ -18,14 +18,13 @@ sip.start({
 },
   function (rq) {
     console.log('------------------')
-    console.log(rq)
+    console.log(JSON.stringify(rq))
     console.log('------------------')
     console.log('\n\n\n');
     try {
       if (rq.method === 'REGISTER') {
         //looking up user info
         var username = sip.parseUri(rq.headers.to.uri).user;
-        console.log(username)
 
         registry[username] = rq.headers.contact;
 
@@ -36,7 +35,6 @@ sip.start({
       }
       else if (rq.method === 'INVITE') {
         var username = sip.parseUri(rq.uri).user;
-        console.log(username)
         var contacts = registry[username];
 
         if (contacts && Array.isArray(contacts) && contacts.length > 0) {
