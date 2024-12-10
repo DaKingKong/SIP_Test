@@ -9,7 +9,6 @@ var fs = require('fs');
 var registry = {};
 
 sip.start({
-    port: 443,
     logger: {
         send: function (message, address) { debugger; util.debug("send\n" + util.inspect(message, false, null)); },
         recv: function (message, address) { debugger; util.debug("recv\n" + util.inspect(message, false, null)); },
