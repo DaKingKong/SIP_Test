@@ -14,11 +14,6 @@ sip.start({
     send: function (message, address) { debugger; util.debug("send\n" + util.inspect(message, false, null)); },
     recv: function (message, address) { debugger; util.debug("recv\n" + util.inspect(message, false, null)); },
     error: function (e) { util.debug(e.stack); }
-  },
-  tls: {
-    key: fs.readFileSync('private-key.pem'),
-    cert: fs.readFileSync('certificate.pem'),
-    passphrase: 'GrassMudHorse'
   }
 },
   function (rq) {
