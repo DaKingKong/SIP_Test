@@ -17,7 +17,8 @@ sip.start({
   },
   tls: {
     key: fs.readFileSync('private-key.pem'),
-    cert: fs.readFileSync('certificate.pem')
+    cert: fs.readFileSync('certificate.pem'),
+    passphrase: 'GrassMudHorse'
   }
 },
   function (rq) {
