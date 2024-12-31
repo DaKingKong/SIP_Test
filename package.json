@@ -4,14 +4,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tcp": "node tcp.js",
-    "tls": "node tls.js"
+    "tcp": "nodemon src/tcp.js",
+    "tls": "nodemon src/tls.js",
+    "rtp": "nodemon src/rtp.js",
+    "tunnel": "lite-http-tunnel start 5062 -p crm"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "express": "^4.19.2",
+    "nodemon": "^3.1.7",
     "sip": "^0.0.6",
     "sip.js": "^0.21.2",
     "tls-sip-probe": "^1.0.5"
