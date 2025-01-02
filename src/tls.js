@@ -13,8 +13,7 @@ sip.start({
     },
     tls: {
         key: fs.readFileSync('private-key.pem'),
-        cert: fs.readFileSync('certificate.pem'),
-        tls_port: 5061
+        cert: fs.readFileSync('certificate.pem')
     }
 },
     function (rq) {
@@ -25,8 +24,20 @@ sip.start({
         console.log(rq.method)
         try {
             switch (rq.method) {
+                case 'REGISTER':
+                    //looking up user info
+                    var username = sip.parseUri(rq.headers.to.uri).user;
+
+                    registry[username] = rq.headers.contact;
+
+                    var rs = sip.makeResponse(rq, 200, 'Ok');
+                    rs.headers.contact = rq.headers.contact;
+                    console.log(registry)
+                    util.debug('sending response');
+                    sip.send(rs);
+                    break;
                 case 'INVITE':
-                    console.log(JSON.stringify(rq, null, 2));
+                    // console.log(JSON.stringify(rq, null, 2));
                     var rs = sip.makeResponse(rq, 200, 'OK');
                     var sdp = [
                         'v=0',
@@ -44,6 +55,11 @@ sip.start({
                     // Include SDP in the response body
                     rs.content = sdp;
                     rs.headers['content-type'] = 'application/sdp';
+                    rs.headers['contact'] = [
+                        {
+                            uri: 'sip:alice@0.tcp.jp.ngrok.io:15348;transport=tls'
+                        }
+                    ]
                     console.log(JSON.stringify(rs, null, 2));
                     sip.send(rs);
                     break;
