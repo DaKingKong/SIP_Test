@@ -17,37 +17,56 @@ sip.start({
   }
 },
   function (rq) {
-    console.log('------------------')
-    console.log(JSON.stringify(rq, null, 2))
-    console.log('------------------')
-    console.log('\n\n\n');
+    // console.log('------------------')
+    // console.log(JSON.stringify(rq, null, 2))
+    // console.log('------------------')
+    // console.log('\n\n\n');
+    console.log(rq.method)
     try {
-      if (rq.method === 'REGISTER') {
-        //looking up user info
-        var username = sip.parseUri(rq.headers.to.uri).user;
+      switch (rq.method) {
+        case 'REGISTER':
+          //looking up user info
+          var username = sip.parseUri(rq.headers.to.uri).user;
 
-        registry[username] = rq.headers.contact;
+          registry[username] = rq.headers.contact;
 
-        var rs = sip.makeResponse(rq, 200, 'Ok');
-        rs.headers.contact = rq.headers.contact;
-        util.debug('sending response');
-        sip.send(rs);
-      }
-      else if (rq.method === 'INVITE') {
-        var username = sip.parseUri(rq.uri).user;
-        var contacts = registry[username];
-
-        if (contacts && Array.isArray(contacts) && contacts.length > 0) {
-          var rs = sip.makeResponse(rq, 302, 'Moved');
-          rs.headers.contact = contacts;
+          var rs = sip.makeResponse(rq, 200, 'Ok');
+          rs.headers.contact = rq.headers.contact;
+          console.log(registry)
+          util.debug('sending response');
           sip.send(rs);
-        }
-        else {
-          sip.send(sip.makeResponse(rq, 404, 'Not Found'));
-        }
-      }
-      else {
-        sip.send(sip.makeResponse(rq, 405, 'Method Not Allowed'));
+          break;
+        case 'INVITE':
+          console.log(JSON.stringify(rq, null, 2));
+          var rs = sip.makeResponse(rq, 200, 'OK');
+          var sdp = [
+            'v=0',
+            'o=- 0 0 IN IP4 127.0.0.1',
+            's=No Name',
+            'c=IN IP4 0.tcp.jp.ngrok.io', // Your public IP address or domain
+            't=0 0',
+            'a=tool:libavformat 61.9.100',
+            `m=audio 12071 RTP/AVP 0`, // Your port and codecs
+            'b=AS:64',
+            'a=rtpmap:0 PCMU/8000/1', // Mapping for PCMU codec
+            'a=sendrecv' // Send & Receive 
+          ].join('\r\n');
+
+          // Include SDP in the response body
+          rs.content = sdp;
+          rs.headers['content-type'] = 'application/sdp';
+          rs.headers['contact'] = [{
+            uri: 'sip:da@0.tcp.jp.ngrok.io:12071;transport=tcp'
+          }]
+          rs.headers['to']['params'].tag = 'daTestTag';
+          console.log(JSON.stringify(rs, null, 2));
+          sip.send(rs);
+          break;
+        default:
+          sip.send(sip.makeResponse(rq, 405, 'Method Not Allowed'));
+          console.log(rq.method + ' not allowed');
+          break;
+
       }
     } catch (e) {
       util.debug(e);

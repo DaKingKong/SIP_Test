@@ -43,10 +43,10 @@ sip.start({
                         'v=0',
                         'o=- 0 0 IN IP4 127.0.0.1',
                         's=No Name',
-                        'c=IN IP4 193.34.76.44', // Your public IP address or domain
+                        'c=IN IP4 0.tcp.jp.ngrok.io', // Your public IP address or domain
                         't=0 0',
                         'a=tool:libavformat 61.9.100',
-                        'm=audio 5004 RTP/AVP 0', // Your port and codecs
+                        `m=audio 16332 RTP/AVP 0`, // Your port and codecs
                         'b=AS:64',
                         'a=rtpmap:0 PCMU/8000/1', // Mapping for PCMU codec
                         'a=sendrecv' // Send & Receive 
@@ -55,12 +55,11 @@ sip.start({
                     // Include SDP in the response body
                     rs.content = sdp;
                     rs.headers['content-type'] = 'application/sdp';
-                    rs.headers['contact'] = [
-                        {
-                            uri: 'sip:alice@0.tcp.jp.ngrok.io:15348;transport=tls'
-                        }
-                    ]
-                    console.log(JSON.stringify(rs, null, 2));
+                    rs.headers['contact'] = [{
+                        uri: 'sip:0.tcp.jp.ngrok.io:16332;transport=tls'
+                    }]
+                    rs.headers['to']['params'].tag = 'daTestTag';
+                    // console.log(JSON.stringify(rs, null, 2));
                     sip.send(rs);
                     break;
                 default:

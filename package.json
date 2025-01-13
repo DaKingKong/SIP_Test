@@ -6,6 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "tcp": "nodemon src/tcp.js",
     "tls": "nodemon src/tls.js",
+    "tls_old": "nodemon src/tls_old.js",
+    "call": "nodemon src/call.js",
     "rtp": "nodemon src/rtp.js",
     "tunnel": "lite-http-tunnel start 5062 -p crm"
   },
