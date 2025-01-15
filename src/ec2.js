@@ -65,6 +65,9 @@ sip.start({
           console.log(JSON.stringify(rs, null, 2));
           sip.send(rs);
           break;
+        case 'ACK':
+          console.log(JSON.stringify(rq, null, 2));
+          break;
         default:
           sip.send(sip.makeResponse(rq, 405, 'Method Not Allowed'));
           console.log(rq.method + ' not allowed');
