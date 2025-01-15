@@ -41,7 +41,7 @@ sip.start({
           var rs = sip.makeResponse(rq, 200, 'OK');
           var sdp = [
             'v=0',
-            'o=- 0 0 IN IP4 127.0.0.1',
+            'o=- 0 0 IN IP4 18.214.210.103',
             's=No Name',
             'c=IN IP4 18.214.210.103', // Your public IP address or domain
             't=0 0',
