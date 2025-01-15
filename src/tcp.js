@@ -59,6 +59,9 @@ sip.start({
             uri: 'sip:da@0.tcp.jp.ngrok.io:12071;transport=tcp'
           }]
           rs.headers['to']['params'].tag = 'daTestTag';
+          rs.headers['x-bot-session-id'] = rq.headers['x-bot-session-id'];
+          rs.headers['x-bot-context'] = rq.headers['x-bot-context'];
+          rs.headers['allow'] = 'INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, NOTIFY, MESSAGE, SUBSCRIBE, INFO, UPDATE';
           console.log(JSON.stringify(rs, null, 2));
           sip.send(rs);
           break;

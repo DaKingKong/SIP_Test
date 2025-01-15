@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "ec2": "nodemon src/ec2.js",
     "tcp": "nodemon src/tcp.js",
     "tls": "nodemon src/tls.js",
     "tls_old": "nodemon src/tls_old.js",

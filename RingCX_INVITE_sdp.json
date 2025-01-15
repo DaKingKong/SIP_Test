@@ -1,6 +1,6 @@
 {
   "method": "INVITE",
-  "uri": "sip:da@0.tcp.jp.ngrok.io:12071;transport=tcp",
+  "uri": "sip:da@18.214.210.103;transport=tcp",
   "version": "2.0",
   "headers": {
     "via": [
@@ -10,8 +10,8 @@
         "host": "192.209.28.23",
         "port": 5082,
         "params": {
-          "branch": "z9hG4bKgbIONogEYdZ",
-          "received": "::ffff:127.0.0.1"
+          "branch": "z9hG4bK3b16uM3p6fv",
+          "received": "::ffff:192.209.28.23"
         }
       }
     ],
@@ -23,12 +23,12 @@
       "name": "\"RINGCENTRAL\"",
       "uri": "sip:+17206789819@engage.ringcentral.com",
       "params": {
-        "tag": "as25f8b898"
+        "tag": "as52cda032"
       }
     },
-    "call-id": "4d40c1970a9a916b51c65bbf5225b891@engage.ringcentral.com",
+    "call-id": "4946c9ed47bc01960a2b728b57d1fff2@engage.ringcentral.com",
     "cseq": {
-      "seq": 20360011,
+      "seq": 20477933,
       "method": "INVITE"
     },
     "max-forwards": "68",
@@ -38,15 +38,15 @@
         "params": {}
       }
     ],
-    "x-bot-session-id": "15821a80b53e42b58cc42e31ebdf0f4b-1736735662368",
+    "x-bot-session-id": "17dfb62671724a7cb067c8dc9c4256f7-1736755013459",
     "supported": "replaces",
     "x-ringcentral-platform": "RingCX",
     "user-agent": "\"G-Tel v1.0\"",
     "allow": "INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, SUBSCRIBE, NOTIFY, INFO",
     "content-type": "application/sdp",
     "x-bot-context": "{}",
-    "date": "Mon, 13 Jan 2025 02:34:22 GMT",
+    "date": "Mon, 13 Jan 2025 07:56:53 GMT",
     "content-length": 258
   },
-  "content": "v=0\r\no=root 1 1 IN IP4 192.209.28.37\r\ns=session\r\nc=IN IP4 192.209.28.37\r\nt=0 0\r\nm=audio 49698 RTP/AVP 0 8 101\r\na=sendrecv\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:101 telephone-event/8000\r\na=fmtp:101 0-16\r\na=silenceSupp:off - - - -\r\na=ptime:20\r\n"
+  "content": "v=0\r\no=root 1 1 IN IP4 192.209.28.36\r\ns=session\r\nc=IN IP4 192.209.28.36\r\nt=0 0\r\nm=audio 52078 RTP/AVP 0 8 101\r\na=sendrecv\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:101 telephone-event/8000\r\na=fmtp:101 0-16\r\na=silenceSupp:off - - - -\r\na=ptime:20\r\n"
 }
