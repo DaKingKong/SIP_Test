@@ -41,12 +41,12 @@ sip.start({
           var rs = sip.makeResponse(rq, 200, 'OK');
           var sdp = [
             'v=0',
-            'o=- 0 0 IN IP4 103.203.221.205',
+            'o=- 0 0 IN IP4 0.tcp.jp.ngrok.io',
             's=No Name',
-            'c=IN IP4 103.203.221.205', // Your public IP address or domain
+            'c=IN IP4 0.tcp.jp.ngrok.io', // Your public IP address or domain
             't=0 0',
             'a=tool:libavformat 61.9.100',
-            `m=audio 5060 RTP/AVP 0`, // Your port and codecs
+            `m=audio 11692 RTP/AVP 0`, // Your port and codecs
             'b=AS:64',
             'a=rtpmap:0 PCMU/8000/1', // Mapping for PCMU codec
             'a=sendrecv' // Send & Receive 
@@ -56,7 +56,7 @@ sip.start({
           rs.content = sdp;
           rs.headers['content-type'] = 'application/sdp';
           rs.headers['contact'] = [{
-            uri: 'sip:da@103.203.221.205:5060;transport=tcp'
+            uri: 'sip:da@0.tcp.jp.ngrok.io:11692;transport=tcp'
           }]
           rs.headers['to']['params'].tag = 'daTestTag';
           rs.headers['x-bot-session-id'] = rq.headers['x-bot-session-id'];
