@@ -62,6 +62,7 @@ sip.start({
           rs.headers['x-bot-session-id'] = rq.headers['x-bot-session-id'];
           rs.headers['x-bot-context'] = rq.headers['x-bot-context'];
           rs.headers['allow'] = 'INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, NOTIFY, MESSAGE, SUBSCRIBE, INFO, UPDATE';
+          rs.headers['via'][0]['params']['received'] = rs.headers['via'][0]['params']['received'].split('ffff:')[1];
           console.log(JSON.stringify(rs, null, 2));
           sip.send(rs);
           break;
