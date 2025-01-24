@@ -5,6 +5,17 @@ var sip = require('sip');
 var digest = require('sip/digest');
 var util = require('util');
 var fs = require('fs');
+const net = require('net');
+
+function ipv6ToIpv4(ipv6) {
+  if (net.isIPv6(ipv6)) {
+    const ipv4 = ipv6.split(':').pop();
+    if (ipv4.includes('.')) {
+      return ipv4;
+    }
+  }
+  throw new Error('Invalid IPv6 address');
+}
 
 var registry = {};
 
@@ -63,7 +74,7 @@ sip.start({
           rs.headers['x-bot-context'] = rq.headers['x-bot-context'];
           rs.headers['allow'] = 'INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, NOTIFY, MESSAGE, SUBSCRIBE, INFO, UPDATE';
           rs.headers['via'][0]['params']['received'] = rs.headers['via'][0]['params']['received'].split('ffff:')[1];
-          console.log(JSON.stringify(rs, null, 2));
+          // console.log(JSON.stringify(rs, null, 2));
           sip.send(rs);
           break;
         case 'ACK':

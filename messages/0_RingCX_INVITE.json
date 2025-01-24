@@ -1,0 +1,52 @@
+{
+  "method": "INVITE",
+  "uri": "sip:da@0.tcp.jp.ngrok.io:15687;transport=tcp",
+  "version": "2.0",
+  "headers": {
+    "via": [
+      {
+        "version": "2.0",
+        "protocol": "TCP",
+        "host": "192.209.28.39",
+        "port": 5082,
+        "params": {
+          "branch": "z9hG4bKcdNNgHwiYnp",
+          "received": "127.0.0.1"
+        }
+      }
+    ],
+    "to": {
+      "uri": "sip:da@10.0.16.80:5062",
+      "params": {}
+    },
+    "from": {
+      "name": "\"RINGCENTRAL\"",
+      "uri": "sip:+17206789819@engage.ringcentral.com",
+      "params": {
+        "tag": "as77707821"
+      }
+    },
+    "call-id": "60d420d954317fdc48cd0f5d57b5b316@engage.ringcentral.com",
+    "cseq": {
+      "seq": 1980252,
+      "method": "INVITE"
+    },
+    "max-forwards": "68",
+    "contact": [
+      {
+        "uri": "sip:+17206789819@192.209.28.39:5082;transport=tcp",
+        "params": {}
+      }
+    ],
+    "x-bot-context": "{}",
+    "user-agent": "\"G-Tel v1.0\"",
+    "x-ringcentral-platform": "RingCX",
+    "supported": "replaces",
+    "x-bot-session-id": "b2b9291f25754675bfc8873bdbedcd38-1737698159078",
+    "date": "Fri, 24 Jan 2025 05:55:59 GMT",
+    "allow": "INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, SUBSCRIBE, NOTIFY, INFO",
+    "content-type": "application/sdp",
+    "content-length": 258
+  },
+  "content": "v=0\r\no=root 1 1 IN IP4 192.209.28.38\r\ns=session\r\nc=IN IP4 192.209.28.38\r\nt=0 0\r\nm=audio 60944 RTP/AVP 0 8 101\r\na=sendrecv\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:101 telephone-event/8000\r\na=fmtp:101 0-16\r\na=silenceSupp:off - - - -\r\na=ptime:20\r\n"
+}

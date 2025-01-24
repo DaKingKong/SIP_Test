@@ -1,0 +1,37 @@
+{
+  "status": 200,
+  "reason": "OK",
+  "version": "2.0",
+  "headers": {
+    "via": [
+      {
+        "version": "2.0",
+        "protocol": "TCP",
+        "host": "192.209.28.39",
+        "port": 5082,
+        "params": {
+          "branch": "z9hG4bKcCDAnf89kUx",
+          "received": "127.0.0.1"
+        }
+      }
+    ],
+    "to": {
+      "uri": "sip:da@10.0.16.80:5062",
+      "params": {
+        "tag": "daTestTag"
+      }
+    },
+    "from": {
+      "name": "\"RINGCENTRAL\"",
+      "uri": "sip:+17206789819@engage.ringcentral.com",
+      "params": {
+        "tag": "as77707821"
+      }
+    },
+    "call-id": "60d420d954317fdc48cd0f5d57b5b316@engage.ringcentral.com",
+    "cseq": {
+      "seq": 1980313,
+      "method": "BYE"
+    }
+  }
+}

@@ -17,6 +17,9 @@
   "description": "",
   "dependencies": {
     "express": "^4.19.2",
+    "ffmpeg-static": "^5.2.0",
+    "mediasoup": "^3.15.2",
+    "node-rtsp-stream": "^0.0.9",
     "nodemon": "^3.1.7",
     "sip": "^0.0.6",
     "sip.js": "^0.21.2",
